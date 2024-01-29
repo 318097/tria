@@ -12,7 +12,7 @@ const StyledAssetDetailsCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 160px;
+  height: 200px;
   .row {
     display: flex;
     align-items: center;
