@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tria/static/css/main.5bb4dc3c.css",
+    "main.js": "/tria/static/js/main.c1d3c4ad.js",
+    "static/js/787.b6753bdb.chunk.js": "/tria/static/js/787.b6753bdb.chunk.js",
+    "index.html": "/tria/index.html",
+    "main.5bb4dc3c.css.map": "/tria/static/css/main.5bb4dc3c.css.map",
+    "main.c1d3c4ad.js.map": "/tria/static/js/main.c1d3c4ad.js.map",
+    "787.b6753bdb.chunk.js.map": "/tria/static/js/787.b6753bdb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5bb4dc3c.css",
+    "static/js/main.c1d3c4ad.js"
+  ]
+}
