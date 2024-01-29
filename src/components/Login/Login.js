@@ -1,7 +1,9 @@
-import { Flex, Text, Button, Box, Grid, Callout } from "@radix-ui/themes";
+import { Flex, Text, Button, Grid } from "@radix-ui/themes";
 import "./Login.scss";
 import { useState } from "react";
 import styled from "styled-components";
+import Lottie from "react-lottie";
+import grid from "../../assets/grid.json";
 
 const StyledCreateAccount = styled.div`
   color: gray;
@@ -76,7 +78,7 @@ const StyledCreateAccount = styled.div`
       position: absolute;
       width: 70px;
       height: 199.83px;
-      opacity: 0.04;
+      opacity: 0.08;
       transform: rotate(45deg);
       z-index: 1;
       background: #d9d9d9;
@@ -96,77 +98,100 @@ const StyledCreateAccount = styled.div`
   }
 `;
 
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: grid,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+
 export default function MyApp() {
   const [view, setView] = useState();
 
-  const handleClick = () => {
-    setView((prev) => !prev);
-  };
+  const handleClick = () => setView((prev) => !prev);
 
   return (
     <section id="login">
-      <div className="title-container">
-        <Text className="title">
-          Login to <br />
-          <strong>tria</strong> Demo
-        </Text>
+      <div className="lottie">
+        <Lottie options={defaultOptions} />
       </div>
+      <div className="overlay">
+        <div className="title-container">
+          <Text className="title">
+            Login to <br />
+            <strong>tria</strong> Demo
+          </Text>
+        </div>
 
-      {view ? (
-        <StyledCreateAccount
-          direction="column"
-          className="account-creation-container"
-        >
-          <h3>Create your Tria name</h3>
-          <div className="username-field">
-            <input type="text" />
-            <Button className="primary">Next</Button>
-          </div>
-          <div>
-            <span className="error-msg">Username not available</span>
-          </div>
+        {view ? (
+          <CreateAccountCard />
+        ) : (
+          <AuthenticationCard handleClick={handleClick} />
+        )}
 
-          <div className="pill-label">Recommended:</div>
-          <div className="pill-container">
-            <span className="dark">mehul123</span>
-            <span className="dark">mmlakhanpal</span>
-            <span className="dark">abfsdfc</span>
-          </div>
-          <div className="alert">
-            <div>
-              Your <strong style={{ color: "#c5c5c5" }}>@tria</strong> is like
-              Gmail, for Web3. Pay, receive and log-in to apps on any device,
-              and blockchain.
-            </div>
-          </div>
-        </StyledCreateAccount>
-      ) : (
-        <Flex direction="column" className="account-creation-container">
-          <Button className="primary">Continue with Google</Button>
-          <Button className="dark">Continue with X (formerly Twitter)</Button>
-          <Button className="dark" onClick={handleClick}>
-            Continue with X (formerly Twitter)
-          </Button>
-          <div className="hr">
-            <div />
-            <span>OR</span>
-            <div />
-          </div>
-          <Grid columns="2" gap="3" className="wallet-group">
-            <Button size="3" radius="large" className="dark outline center">
-              Metamask
-            </Button>
-
-            <Button size="3" radius="large" className="dark outline ">
-              WalletConnect
-            </Button>
-          </Grid>
-        </Flex>
-      )}
-
-      <div className="powered-by-container">
-        <Text className="ghost">Powered by Tria</Text>
+        <div className="powered-by-container">
+          <Text className="ghost">Powered by Tria</Text>
+        </div>
       </div>
     </section>
   );
 }
+
+const AuthenticationCard = ({ handleClick }) => (
+  <Flex direction="column" className="account-creation-container">
+    <Button className="primary" onClick={handleClick}>
+      Continue with Google
+    </Button>
+    <Button className="dark" onClick={handleClick}>
+      Continue with X (formerly Twitter)
+    </Button>
+    <Button className="dark" onClick={handleClick}>
+      Continue with X (formerly Twitter)
+    </Button>
+    <div className="hr">
+      <div />
+      <span>OR</span>
+      <div />
+    </div>
+    <Grid columns="2" gap="3" className="wallet-group">
+      <Button size="3" radius="large" className="dark outline center">
+        Metamask
+      </Button>
+
+      <Button size="3" radius="large" className="dark outline ">
+        WalletConnect
+      </Button>
+    </Grid>
+  </Flex>
+);
+
+const CreateAccountCard = () => (
+  <StyledCreateAccount
+    direction="column"
+    className="account-creation-container"
+  >
+    <h3>Create your Tria name</h3>
+    <div className="username-field">
+      <input type="text" />
+      <Button className="primary center">Next</Button>
+    </div>
+    <div>
+      <span className="error-msg">Username not available</span>
+    </div>
+
+    <div className="pill-label">Recommended:</div>
+    <div className="pill-container">
+      <span className="dark">mehul123</span>
+      <span className="dark">mmlakhanpal</span>
+      <span className="dark">abfsdfc</span>
+    </div>
+    <div className="alert">
+      <div>
+        Your <strong style={{ color: "#c5c5c5" }}>@tria</strong> is like Gmail,
+        for Web3. Pay, receive and log-in to apps on any device, and blockchain.
+      </div>
+    </div>
+  </StyledCreateAccount>
+);

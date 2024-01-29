@@ -8,12 +8,26 @@
 section {
   height: 640px;
   width: 360px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  background-color: black;
-  padding-top: 20px;
-  padding-bottom: 0px;
+  overflow: hidden;
+  position: relative;
+  background-color: #1a1a1a;
+  .lottie,
+  .overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+  }
+  .overlay {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 20px;
+    padding-bottom: 0px;
+  }
 }
 
 #login button,
@@ -29,7 +43,7 @@ section {
     background: linear-gradient(111.34deg, #9f8bff 0%, #7053ff 100%);
     transition: 0.4s;
     &:hover {
-      background: linear-gradient(111.34deg, #762fd3 0%, #762fd3 100%);
+      background: linear-gradient(111.34deg, #762fd3 0%, #4a3a97 100%);
     }
   }
 
