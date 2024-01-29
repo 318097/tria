@@ -2,12 +2,18 @@ section {
   height: 640px;
   width: 360px;
   margin: 0 auto;
-  padding: 20px 12px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: stretch;
   background-color: black;
+  padding-top: 20px;
+  padding-bottom: 0px;
+}
+
+#login {
+  justify-content: flex-end;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
 .title-container {
@@ -27,40 +33,42 @@ section {
   border-radius: 16px;
   padding: 16px;
   gap: 12px;
+}
 
-  button,
-  .pill {
-    height: 48px;
-    border-radius: 16px;
-    gap: 12px;
-    align-items: center;
-    justify-content: flex-start;
-    background: #fafafa14;
+button {
+  height: 48px;
+  border-radius: 16px;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  background: #fafafa14;
 
-    &.primary {
-      background: linear-gradient(111.34deg, #9f8bff 0%, #7053ff 100%);
-      transition: 0.4s;
-      &:hover {
-        background: linear-gradient(111.34deg, #762fd3 0%, #762fd3 100%);
-      }
+  &.primary {
+    background: linear-gradient(111.34deg, #9f8bff 0%, #7053ff 100%);
+    transition: 0.4s;
+    &:hover {
+      background: linear-gradient(111.34deg, #762fd3 0%, #762fd3 100%);
     }
+  }
 
-    &.outline {
-      border: 1px solid #4a4a4a;
-      background: transparent;
-    }
+  &.outline {
+    border: 1px solid #4a4a4a;
+    background: transparent;
+  }
 
-    &.dark {
-      transition: 0.4s;
-      &:hover {
-        box-shadow: 0px 0px 14px 0px #ffffff40 inset;
-      }
+  &.dark {
+    transition: 0.4s;
+    &:hover {
+      box-shadow: 0px 0px 14px 0px #ffffff40 inset;
     }
+  }
 
-    &.center {
-      justify-content: center;
-      text-align: center;
-    }
+  &.center {
+    justify-content: center;
+    text-align: center;
+  }
+  &.transparent {
+    background: #10101080;
   }
 }
 

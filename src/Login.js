@@ -104,7 +104,7 @@ export default function MyApp() {
   };
 
   return (
-    <section>
+    <section id="login">
       <div className="title-container">
         <Text className="title">
           Login to <br />
